@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nahum Yehdego</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/5aaccc38e2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <div class="logo">NY</div>
+    </div>
 
+    <ul class="nav-center">
+      <li><a href="#">Home</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="assets/NYResume.pdf" target="_blank">Resume</a></li>
+    </ul>
+    <div class="nav-right">
+      <div>
+        <div class="social-icons">
+          <a href="https://github.com/nyehdego?tab=repositories"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-content">
+    <div class="left-side">
+      <h1 class="typewriter" id="typewriter-text"></h1>
+      <p class="description">
+        A product designer with a passion for creations that blend tech, strategy, and community.
+      </p>
+      <p class="credentials">
+        Incoming @ Deloitte<br>
+        Worked @ Lynk Global<br>
+        Graduated from Brown University
+      </p>
+    </div>
+    <div class="right-side">
+      <img src="assets/Headshot.jpg" alt="Nahum's Headshot" class="profile-pic" />
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section" id="projects">
+    <h2 class="projects-section-text">Projects</h2>
+    
+    <div class="card-container">
+  
+        <div class="card">
+          <div class="card-img">
+            <img src="assets/apriora_logo.jpeg" alt="Apriora Logo">
+          </div>
+          <div class="card-content">
+            <a href="apriora.html" class="card-link">
+            <h2 class="card-title">Apriora (2025)</h2>
+            <p class="card-desc">Redesigning an AI interview experiences for both recruiters and candidates such that they have a smooth <strong>UI/UX</strong> experience.</p>
+          </a>
+          </div>
+        </div>
+  
+      <a href="asmara.html" class="card-link">
+        <div class="card">
+          <div class="card-img">
+            <img src="assets/asmara_restaurant.jpg" alt="Asmara Restaurant">
+          </div>
+          <div class="card-content">
+            <a href="asmara.html" class="card-link">
+            <h2 class="card-title">Asmara Restaurant (2025)</h2>
+            <p class="card-desc">A warm, <strong>responsive redesign</strong> of my mother's family-owned website with accessibility and mondernization at the core.</p>
+          </a>
+          </div>
+        </div>
+      
+  
+        <div class="card">
+          <div class="card-img">
+            <img src="assets/lynk_global.webp" alt="Lynk Global">
+          </div>
+          <div class="card-content">
+            <a href="lynk.html" class="card-link">
+            <h2 class="card-title">Lynk Global (2024)</h2>
+            <p class="card-desc"><strong>Creating an API</strong> related to satellite telemetry, supporting tech to make no-limit phone calls around the world possible.</p>
+          </a>
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="card-img">
+            <img src="assets/vending_machines.avif" alt="Vending Machines">
+          </div>
+          <div class="card-content">
+            <a href="vendingmachines.html" class="card-link">
+            <h2 class="card-title">Vending Machines (2025)</h2>
+            <p class="card-desc">Examining vending machines through <strong>Personas and Storyboarding</strong> and analyzing the pitfalls of this public interface.</p>
+          </a>
+          </div>
+        </div>
+      </a>
+  
+    </div>
+  </section>
+
+  <section class="about-section" id="about">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>
+          I’m Nahum Yehdego — a product thinker, full-stack builder, and community-rooted creative who designs with purpose and codes with heart. Whether I’m engineering satellite telemetry systems, redesigning my family’s restaurant strategy, or dancing with a 5,000-person dance community I helped build, I bring the same energy: curiosity, care, and execution.
+        </p>
+        <p>
+          As a first-gen Eritrean-American and lifelong learner, I’m driven to create tech that solves real problems, celebrates culture, and makes people’s lives a little better — one project at a time.
+        </p>
+      </div>
+    </div>
+  </section>
+  <script>
+    const staticText = "H";
+    const dynamicText = "i, I'm Nahum!";
+    let index = 0;
+    let isDeleting = false;
+    const speed = 150;
+    const pause = 5000;
+  
+    function typeWriterLoop() {
+      const element = document.getElementById("typewriter-text");
+  
+      if (isDeleting) {
+        element.textContent = staticText + dynamicText.substring(0, index--);
+      } else {
+        element.textContent = staticText + dynamicText.substring(0, index++);
+      }
+  
+      if (!isDeleting && index === dynamicText.length + 1) {
+        isDeleting = true;
+        setTimeout(typeWriterLoop, pause);
+      } else if (isDeleting && index === 0) {
+        isDeleting = false;
+        setTimeout(typeWriterLoop, 300);
+      } else {
+        setTimeout(typeWriterLoop, speed);
+      }
+    }
+  
+    window.onload = typeWriterLoop;
+  </script>
+  
+</body>
+</html>
